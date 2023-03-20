@@ -26,9 +26,9 @@ warmStrategyCache({
 
 registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
-// TODO: Implement asset caching
+// TODO: Implement asset caching; did I do this right?
 registerRoute(
-  ({ request }) => request.destination === 'image',
+  ({ request }) => ['image'].includes(request.destination),
   new CacheFirst({
     cacheName: 'my-image-cache',
     plugins: [
